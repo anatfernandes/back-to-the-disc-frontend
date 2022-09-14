@@ -1,7 +1,6 @@
-import styled from "styled-components";
 import Input from "../../common/Input";
-import Button from "./AcessStyled";
-import {DiscIcon} from "../../common/Icons";
+import { Container, Button, Logo } from "./AcessStyled";
+import { DiscIcon } from "../../common/Icons";
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { postSignUp } from "../../services/backtothedisc";
@@ -55,7 +54,7 @@ export default function SignUp() {
   }
 
   return (
-    <SignUpContainer>
+    <Container>
       <DiscIcon font-size={"100px"} />
 
       <Logo>
@@ -95,33 +94,6 @@ export default function SignUp() {
       </form>
 
       <Link to={"/sign-in"}>Já tem uma conta? Entre agora!</Link>
-    </SignUpContainer>
+    </Container>
   );
 }
-
-const SignUpContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  a {
-    margin-top: 20px;
-    font-size: 18px;
-  }
-`;
-
-const Logo = styled.h1`
-  font-size: 35px;
-  font-weight: 700;
-  font-family: Aclonica;
-  text-align: center;
-  margin: 30px 0px;
-`;

@@ -1,5 +1,32 @@
 import styled from "styled-components";
 
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  a {
+    margin-top: 20px;
+    font-size: 18px;
+  }
+`;
+
+const Logo = styled.h1`
+  font-size: 35px;
+  font-weight: 700;
+  font-family: Aclonica;
+  text-align: center;
+  margin: 30px 0px;
+`;
+
 const Button = styled.div`
   width: 300px;
   height: 45px;
@@ -15,5 +42,4 @@ const Button = styled.div`
   cursor: pointer;
 `;
 
-
-export default Button;
+export { Container, Logo, Button };
