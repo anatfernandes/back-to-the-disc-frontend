@@ -53,8 +53,7 @@ export default function Alert () {
 
 const Wrapper = styled.div`
     width: fit-content;
-    max-width: 70%; //
-    max-width: 500px; //
+    max-width: 500px;
     background-color: ${props => props.color};
     position: fixed;
     top: 10px;
