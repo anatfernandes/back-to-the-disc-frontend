@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import Input from "../../common/InputAcess";
-import Button from "../../common/ButtonAcess";
-import Disc from "../../common/IconAcess";
+import Input from "../../common/Input";
+import Button from "./AcessStyled";
+import {DiscIcon} from "../../common/Icons";
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { postSignUp } from "../../services/backtothedisc";
@@ -56,7 +56,7 @@ export default function SignUp() {
 
   return (
     <SignUpContainer>
-      <Disc font-size={"100px"} />
+      <DiscIcon font-size={"100px"} />
 
       <Logo>
         BACK TO THE <p></p> DISC

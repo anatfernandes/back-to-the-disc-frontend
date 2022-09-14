@@ -1,7 +1,13 @@
 import styled from "styled-components";
 
-const Input = styled.input`
-  width: 500px;
+function Input({ ...otherProps }) {
+  return <Wapper {...otherProps}></Wapper>;
+}
+
+export default Input;
+
+const Wapper = styled.input`
+  width: 25vw;
   height: 50px;
   font-size: 20px;
   text-align: center;
@@ -14,8 +20,9 @@ const Input = styled.input`
 
   &::placeholder {
     color: var(--grayEscuro);
-    text-align: center;
+  }
+
+  @media (max-width: 1200px) {
+    width: 300px;
   }
 `;
-
-export default Input;
