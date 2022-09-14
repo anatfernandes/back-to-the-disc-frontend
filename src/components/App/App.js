@@ -1,20 +1,30 @@
 import GlobalStyle from "./GlobalStyles";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 
-import { Alert } from "../Messages";
 import MessageContext from "../../contexts/MessageContext";
+import { Alert } from "../Messages";
+import SignUp from "../AcessPages/SignUp.js";
 
 
 function App() {
   const [message, setMessage] = useState({});
 
   return (
-    <MessageContext.Provider value={{ message, setMessage }}>
-      <GlobalStyle/>
-
-      {message.type === 'alert' ? <Alert /> : ''}
+    <BrowserRouter>
+      <MessageContext.Provider value={{ message, setMessage }}>
       
-    </MessageContext.Provider>
+        <GlobalStyle/>
+
+        {message.type === 'alert' ? <Alert /> : ''}
+
+        <Routes>
+          <Route path="/sign-up" element={<SignUp />}></Route>
+        </Routes>
+      
+       </MessageContext.Provider>
+    </BrowserRouter>
   );
 }
 
