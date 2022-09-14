@@ -1,5 +1,8 @@
 import Alert from "./Alert";
+import Confirm from "./Confirm";
+
 
 export {
-    Alert
+    Alert,
+    Confirm
 };
