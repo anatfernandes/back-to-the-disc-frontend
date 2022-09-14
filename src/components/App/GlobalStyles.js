@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -143,18 +143,19 @@ const GlobalStyle = createGlobalStyle`
   }
 
   * {
+    background-color: #e7e7e7;
     box-sizing: border-box;
     text-decoration: none;
     --white: #FFFFFF;
     --black: #000000;
     --red-theme: #F81101;
-    --grayE7: #E7E7E7;
-    --grayD9: #D9D9D9;
-    --grayC7: #C7C0C0;
-    --grayF2: #F2F2F2;
-    --gray80: #808080;
-    --gray78: #787878;
-    --grayAF: #AFAFAF;
+    --grayExtraClaro: #F2F2F2;
+    --grayClaro: #E7E7E7;
+    --grayClaroB: #D9D9D9;
+    --grayMedio: #C7C0C0;
+    --grayMedioB: #AFAFAF
+    --graySemiEscuro: #787878;
+    --grayEscuro: #808080;
   }
 
   #root {
