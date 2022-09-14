@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 
 import MessageContext from "../../contexts/MessageContext";
-import { Alert } from "../Messages";
+import { Alert, Confirm } from "../Messages";
 import SignUp from "../AcessPages/SignUp.js";
 
 
@@ -18,6 +18,7 @@ function App() {
         <GlobalStyle/>
 
         {message.type === 'alert' ? <Alert /> : ''}
+        {message.type === 'confirm' ? <Confirm /> : ''}
 
         <Routes>
           <Route path="/sign-up" element={<SignUp />}></Route>

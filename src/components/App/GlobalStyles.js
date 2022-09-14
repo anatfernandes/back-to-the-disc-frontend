@@ -153,7 +153,7 @@ const GlobalStyle = createGlobalStyle`
     --grayClaro: #E7E7E7;
     --grayClaroB: #D9D9D9;
     --grayMedio: #C7C0C0;
-    --grayMedioB: #AFAFAF
+    --grayMedioB: #AFAFAF;
     --graySemiEscuro: #787878;
     --grayEscuro: #808080;
   }
