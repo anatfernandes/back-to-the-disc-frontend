@@ -7,20 +7,23 @@ import MessageContext from "../../contexts/MessageContext";
 import { Alert } from "../Messages";
 import SignUp from "../AcessPages/SignUp.js";
 
+
 function App() {
   const [message, setMessage] = useState({});
 
   return (
     <BrowserRouter>
       <MessageContext.Provider value={{ message, setMessage }}>
-        <GlobalStyle />
+      
+        <GlobalStyle/>
 
-        {message.type === "alert" ? <Alert /> : ""}
+        {message.type === 'alert' ? <Alert /> : ''}
 
         <Routes>
           <Route path="/sign-up" element={<SignUp />}></Route>
         </Routes>
-      </MessageContext.Provider>
+      
+       </MessageContext.Provider>
     </BrowserRouter>
   );
 }
