@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Input = styled.input`
-  width: 25vw;
+  width: 500px;
   height: 50px;
   font-size: 20px;
   text-align: center;
@@ -14,6 +14,7 @@ const Input = styled.input`
 
   &::placeholder {
     color: var(--grayEscuro);
+    text-align: center;
   }
 `;
 

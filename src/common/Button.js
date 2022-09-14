@@ -1,20 +1,18 @@
 import styled from "styled-components";
 
-const Input = styled.input`
-  width: 25vw;
-  height: 50px;
+const Button = styled.div`
+  width: 300px;
+  height: 45px;
   font-size: 20px;
-  text-align: center;
-  color: var(--grayEscuro);
-  background-color: var(--white);
+  font-weight: 700;
+  color: var(--white);
+  background-color: var(--red-theme);
+  border: none;
   border-radius: 15px;
-  margin-bottom: 20px;
-  padding: 15px;
-  border: solid 1px var(--grayEscuro);
-
-  &::placeholder {
-    color: var(--grayEscuro);
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 `;
 
-export default Input;
+export default Button;
