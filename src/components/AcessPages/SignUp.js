@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import Input from "../../common/Input";
-import Button from "../../common/Button";
-import Disc from "../../common/Icon";
+import Input from "../../common/InputAcess";
+import Button from "../../common/ButtonAcess";
+import Disc from "../../common/IconAcess";
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { postSignUp } from "../../services/backtothedisc";
