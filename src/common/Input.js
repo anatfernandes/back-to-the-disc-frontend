@@ -1,6 +1,12 @@
 import styled from "styled-components";
 
-const Input = styled.input`
+function Input ({ ...otherProps }) {
+  return <Wapper {...otherProps}></Wapper>
+}
+
+export default Input;
+
+const Wapper = styled.input`
   width: 25vw;
   height: 50px;
   font-size: 20px;
@@ -16,5 +22,3 @@ const Input = styled.input`
     color: var(--grayEscuro);
   }
 `;
-
-export default Input;
