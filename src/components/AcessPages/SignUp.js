@@ -39,7 +39,8 @@ export default function SignUp() {
           setPassword("");
           setPassword("");
         })
-        .then(() => {
+        .then((response) => {
+          console.log(response);
           setMessage({
             type: "alert",
             message: {
@@ -55,7 +56,7 @@ export default function SignUp() {
 
   return (
     <Container>
-      <DiscIcon font-size={"100px"} />
+      <DiscIcon fontSize={"150px"} />
 
       <Logo>
         BACK TO THE <p></p> DISC

@@ -27,7 +27,7 @@ const Logo = styled.h1`
   margin: 30px 0px;
 `;
 
-const Button = styled.div`
+const Button = styled.button`
   width: 300px;
   height: 45px;
   font-size: 20px;
