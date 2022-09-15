@@ -139,11 +139,10 @@ const GlobalStyle = createGlobalStyle`
     color: var(--black);
     font-weight: 400;
     font-family: 'Roboto', sans-serif;
-    background-color: var(--purple-theme);
+    background-color: #e7e7e7;
   }
 
   * {
-    background-color: #e7e7e7;
     box-sizing: border-box;
     text-decoration: none;
     --white: #FFFFFF;
