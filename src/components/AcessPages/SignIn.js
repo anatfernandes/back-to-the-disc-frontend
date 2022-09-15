@@ -36,6 +36,14 @@ export default function SignIn() {
           JSON.stringify({ token: response.data })
         );
 
+        setMessage({
+          type: "alert",
+          message: {
+            text: "Bem vindo(a)!",
+            type: "sucess",
+          },
+        });
+
         navigate("/my-cart");
       });
   }
@@ -43,6 +51,7 @@ export default function SignIn() {
   return (
     <Container>
       <DiscIcon fontSize={"150px"} />
+
       <Logo>
         BACK TO THE <p></p> DISC
       </Logo>
@@ -51,14 +60,15 @@ export default function SignIn() {
         <Input
           placeholder="E-mail"
           value={email}
-          type="text"
+          type="email"
+          pattern="[a-z0-9._%+-]+@[a-zLink, 0-9.-]+\.[a-z]{2,4}$"
           required
           onChange={(e) => setEmail(e.target.value)}
         />
         <Input
           placeholder="Senha"
           value={password}
-          type="text"
+          type="password"
           required
           onChange={(e) => setPassword(e.target.value)}
         />
