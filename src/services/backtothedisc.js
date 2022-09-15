@@ -18,7 +18,7 @@ function getProducts(page) {
     artista: "Beyonce",
     nome: "RENAISSANCE",
     image: "https://cdn.shopify.com/s/files/1/0096/1884/9839/products/beyonce_480x.png?v=1656665682",
-    preco: "79.90",
+    preco: 79.90,
     musicas: [
     " I'm That Girl",
     "Cozy",
@@ -39,7 +39,32 @@ function getProducts(page) {
     ],
     status: "new",
     tags: ["beyonce", "renaissance", "r&b"]
-    }]
+    },{
+      artista: "Beyonce",
+      nome: "RENAISSANCE",
+      image: "https://cdn.shopify.com/s/files/1/0096/1884/9839/products/beyonce_480x.png?v=1656665682",
+      preco: 79.90,
+      musicas: [
+      " I'm That Girl",
+      "Cozy",
+      "Alien Superstar",
+      "Cuff It",
+      "Energy",
+      "Break My Soul",
+      "Church Girl",
+      "Plastic Off The Sofa",
+      "Virgo's Groove",
+      "Move",
+      "Heated",
+      "Thique",
+      "All Up In Your Mind",
+      "America Has a Problem",
+      "Pure/honey",
+      "Summer Renaissance"
+      ],
+      status: "new",
+      tags: ["beyonce", "renaissance", "r&b"]
+      }]
   return promise;
 }
 

@@ -7,6 +7,7 @@ import Input from "../../common/Input";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import { SearchIcon } from "../../common/Icons";
+import ProductCard from "./ProductCard";
 
 
 export default function Products ({ setCart }) {
@@ -25,9 +26,11 @@ export default function Products ({ setCart }) {
                 </Search>
             </Header>
 
-            <main>
-                {products.map(({nome}) => <li>{nome}</li>)}
-            </main>
+            <Main>
+                {products.map((product, index) => (
+                    <ProductCard key={index} cart={cart} setCart={setCart} {...product} />
+                ))}
+            </Main>
 
             <Footer />
         </>
@@ -41,7 +44,7 @@ const Search = styled.div`
         position: relative;
 
         svg {
-            width: 20px;
+            width: 25px;
             height: auto;
             position: absolute;
             z-index: 3;
@@ -65,4 +68,13 @@ const InputSearch = styled(Input)`
     padding: 0 0 0 40px;
     border: none;
     text-align: left;
+`;
+
+const Main = styled.main`
+    margin: 200px auto 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: self-start;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 `;
