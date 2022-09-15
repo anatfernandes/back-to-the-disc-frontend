@@ -10,6 +10,8 @@ export default function Alert () {
     const { message, setMessage } = useContext(MessageContext);
     const { text, type } = message.message;
 
+    let top = message.style.top ? message.style.top : '10px';
+
     let color = 'var(--black)';
 
     switch (type) {
@@ -45,7 +47,8 @@ export default function Alert () {
     return (
         <Wrapper
             opacity={opacity}
-            color={color}>
+            color={color}
+            top={top}>
                 {text}
         </Wrapper>
     );
@@ -56,12 +59,12 @@ const Wrapper = styled.div`
     max-width: 500px;
     background-color: ${props => props.color};
     position: fixed;
-    top: 10px;
+    top: ${props => props.top};
     opacity: ${props => props.opacity};
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 5px;
+    padding: 10px;
     border-radius: 7px;
     box-shadow: 0 3px 6px 0 rgb(0 0 0 / 0.3);
     font-size: 18px;
