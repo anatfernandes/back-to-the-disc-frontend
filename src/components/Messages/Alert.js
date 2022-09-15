@@ -10,7 +10,7 @@ export default function Alert () {
     const { message, setMessage } = useContext(MessageContext);
     const { text, type } = message.message;
 
-    let top = message.style.top ? message.style.top : '10px';
+    let top = message?.style?.top ? message.style.top : '10px';
 
     let color = 'var(--black)';
 
