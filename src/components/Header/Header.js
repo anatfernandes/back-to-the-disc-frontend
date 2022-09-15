@@ -89,6 +89,14 @@ const Wrapper = styled.header`
         height: 100px;
         object-fit: cover;
     }
+
+    @media (max-width: 390px) {
+        && {
+            input {
+                width: 40px;
+            }
+        }
+    }
 `;
 
 const Menu = styled.div`
