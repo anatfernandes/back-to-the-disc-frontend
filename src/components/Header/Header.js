@@ -1,14 +1,38 @@
 import styled from "styled-components";
+import { Link, useNavigate } from "react-router-dom";
+import { useContext } from "react";
+
+import MessageContext from "../../contexts/MessageContext";
 import { CartIcon, ExitIcon, HomeIcon, PersonIcon } from "../../common/Icons";
 import bannerImage from "../../images/banner.svg";
 
+
 export default function Header ({ children }) {
+    const { setMessage } = useContext(MessageContext);
 
     let isUser = false;
+    const navigate = useNavigate();
 
     const auth = JSON.parse(localStorage.getItem('backtothedisc'));
 
     if (auth?.token) isUser = true;
+
+    function verifyLogin () {
+        if (isUser) {
+            navigate('/checkout/my-cart');
+        } else {
+            setMessage({
+                type:'alert',
+                message: {
+                    text: 'Você precisa estar logado para acessar o carrinho.',
+                    type: 'warning'
+                },
+                style: {
+                    top:'160px'
+                }
+            });
+        }
+    }
 
     return (
         <Wrapper>
@@ -16,14 +40,16 @@ export default function Header ({ children }) {
 
             <Menu>
                 <span>
-                    <HomeIcon />
-                    <b>Início</b>
+                    <Link to='/'>
+                        <HomeIcon />
+                        <b>Início</b>
+                    </Link>
                 </span>
 
                 { children }
 
                 <div>
-                    <span>
+                    <span onClick={verifyLogin}>
                         <CartIcon />
                         <b>Carrinho</b>
                     </span>
@@ -37,8 +63,10 @@ export default function Header ({ children }) {
                             </i>
                         :   <i>
                                 <span>
-                                    <PersonIcon />
-                                    <b>Entrar</b>
+                                    <Link to='/sign-in'>
+                                        <PersonIcon />
+                                        <b>Entrar</b>
+                                    </Link>
                                 </span>
                             </i>
                     }
@@ -72,10 +100,11 @@ const Menu = styled.div`
     align-items: center;
     justify-content: space-between;
 
-    span {
+    span, a {
         font-size: 18px;
         display: flex;
         align-items: flex-end;
+        cursor: pointer;
     }
 
     span svg {
@@ -90,7 +119,7 @@ const Menu = styled.div`
         max-width: 200px;
     }
 
-    i {
+    i, i a {
         color: var(--red-theme);
     }
 
@@ -100,6 +129,6 @@ const Menu = styled.div`
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin: 0 0 0 
+        margin: 0 0 0 3px;
     }
 `;
