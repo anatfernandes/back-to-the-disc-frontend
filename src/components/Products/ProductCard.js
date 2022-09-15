@@ -6,6 +6,13 @@ import BackgroundSection from "../../common/BackgroundSection";
 
 
 export default function ProductCard ({ cart, setCart, nome, image, preco, _id }) {
+    const [buttonDisabled, setButtonDisabled] = useState(false);
+
+
+    function addProductOnCart () {
+        setCart([...cart, { nome, image, preco }]);
+        setButtonDisabled(true);
+    }
 
 
     return (
@@ -20,7 +27,7 @@ export default function ProductCard ({ cart, setCart, nome, image, preco, _id })
                 </Link>
             </Container>
             
-            <Button onClick={() => setCart([...cart, {nome, image, preco}])}>
+            <Button onClick={addProductOnCart} disabled={buttonDisabled}>
                 <b>Adicionar ao carrinho</b>
             </Button>
             
@@ -67,4 +74,12 @@ const Button = styled.button`
     border-radius: 0 0 10px 10px;
     border: none;
     cursor: pointer;
+
+    &:disabled {
+        filter: brightness(0.6);
+    }
+
+    &:hover {
+        filter: brightness(1.3);
+    }
 `

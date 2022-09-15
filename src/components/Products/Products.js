@@ -10,7 +10,7 @@ import { SearchIcon } from "../../common/Icons";
 import ProductCard from "./ProductCard";
 
 
-export default function Products ({ setCart }) {
+export default function Products ({ cart, setCart }) {
     const [products, setProducts] = useState([]);
     
     useEffect(() => {
