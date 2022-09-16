@@ -14,12 +14,12 @@ function postSignIn(body) {
 }
 
 function getProducts(page) {
-  const promise = axios.get(`${'http://localhost:5000'}/products/?page=${page}`);
+  const promise = axios.get(`${BASE_URL}/products/?page=${page}`);
   return promise;
 }
 
 function getProductDescription(id) {
-  const promise = axios.get(`${'http://localhost:5000'}/description/${id}`);
+  const promise = axios.get(`${BASE_URL}/description/${id}`);
   return promise;
 }
 
