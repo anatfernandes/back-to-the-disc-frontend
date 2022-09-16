@@ -5,6 +5,7 @@ import { useContext } from "react";
 import MessageContext from "../../contexts/MessageContext";
 import { CartIcon, ExitIcon, HomeIcon, PersonIcon } from "../../common/Icons";
 import bannerImage from "../../images/banner.svg";
+import Logout from "../Logout/Logout";
 
 
 export default function Header ({ children }) {
@@ -34,6 +35,26 @@ export default function Header ({ children }) {
         }
     }
 
+    function exit () {
+        Logout({ setMessage });
+
+        navigate('/');
+    }
+
+    function confirmExit () {
+        setMessage({
+            type:'confirm',
+            message: {
+                title:'Sair',
+                text:'Tem certeza que deseja sair?',
+                ifTrue: {
+                    function: exit,
+                }
+            }
+        });
+    }
+
+
     return (
         <Wrapper>
             <img src={bannerImage} alt="back to the disc" />
@@ -56,7 +77,7 @@ export default function Header ({ children }) {
 
                     {isUser
                         ?   <i>
-                                <span>
+                                <span onClick={confirmExit}>
                                     <ExitIcon />
                                     <b>Sair</b>
                                 </span>
