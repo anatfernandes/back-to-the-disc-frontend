@@ -1,21 +1,40 @@
 import styled from "styled-components";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 
 import { getProducts } from "../../services/backtothedisc";
+import MessageContext from "../../contexts/MessageContext";
+import { SearchIcon } from "../../common/Icons";
 
 import Input from "../../common/Input";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
-import { SearchIcon } from "../../common/Icons";
 import ProductCard from "./ProductCard";
 
 
 export default function Products ({ cart, setCart }) {
+    const { setMessage } = useContext(MessageContext);
     const [products, setProducts] = useState([]);
-    
+    const [page, setPage] = useState(1);
+console.log(products)
+
     useEffect(() => {
-        setProducts(getProducts);
-    }, []);
+        const promise = getProducts(page);
+
+        promise.catch(() => {
+            setMessage({
+                type: "alert",
+                message: {
+                  text: "Não foi possível carregar mais produtos. Tente novamente.",
+                  type: "error",
+                },
+              });
+        });
+
+        promise.then(({ data }) => {
+            setProducts([...products, ...data]);
+        });
+    }, [page]);
+    
 
     return (
         <>
@@ -27,9 +46,13 @@ export default function Products ({ cart, setCart }) {
             </Header>
 
             <Main>
-                {products.map((product, index) => (
-                    <ProductCard key={index} cart={cart} setCart={setCart} {...product} />
-                ))}
+                <ProductsWrapper>
+                    {products.map((product, index) => (
+                        <ProductCard key={index} cart={cart} setCart={setCart} {...product} />
+                    ))}
+                </ProductsWrapper>
+
+                <button onClick={() => setPage(page + 1)}>Carregar mais...</button>
             </Main>
 
             <Footer />
@@ -71,10 +94,33 @@ const InputSearch = styled(Input)`
 `;
 
 const Main = styled.main`
-    margin: 200px auto 50px;
+    max-width: 80%;
+    margin: 200px auto 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    & > button {
+        width: 190px;
+        height: 33px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        color: var(--grayClaroB);
+        font-weight: 700;
+        background-color: var(--grayEscuro);
+        cursor: pointer;
+    }
+
+    & > button:hover {
+        filter: brightness(0.9);
+    }
+`;
+
+const ProductsWrapper = styled.div`
     display: flex;
     flex-direction: row;
-    align-items: self-start;
     justify-content: space-evenly;
     flex-wrap: wrap;
 `;

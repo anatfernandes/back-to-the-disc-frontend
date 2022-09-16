@@ -6,7 +6,10 @@ import BackgroundSection from "../../common/BackgroundSection";
 
 
 export default function ProductCard ({ cart, setCart, nome, image, preco, _id }) {
-    const [buttonDisabled, setButtonDisabled] = useState(false);
+
+    const hasInCart = cart.find(product => (product.nome === nome) && (product.preco === preco));
+
+    const [buttonDisabled, setButtonDisabled] = useState(!!hasInCart);
 
 
     function addProductOnCart () {
@@ -75,11 +78,12 @@ const Button = styled.button`
     border: none;
     cursor: pointer;
 
-    &:disabled {
-        filter: brightness(0.6);
-    }
-
     &:hover {
         filter: brightness(1.3);
+    }
+
+    &:disabled {
+        filter: brightness(0.6);
+        cursor: initial;
     }
 `
