@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import BackgroundSection from "../../common/BackgroundSection";
 
 
-export default function ProductCard ({ cart, setCart, name, image, price, _id }) {
+export default function ProductCard ({ cart, setCart, name, image, price, by, _id }) {
 
     const hasInCart = cart.find(product => (product.name === name) && (product.price === price));
 
@@ -13,7 +13,7 @@ export default function ProductCard ({ cart, setCart, name, image, price, _id })
 
 
     function addProductOnCart () {
-        setCart([...cart, { name, image, price }]);
+        setCart([...cart, { name, image, price, by }]);
         setButtonDisabled(true);
     }
 

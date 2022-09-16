@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const BASE_URL = "https://back-to-the-disc-backend.herokuapp.com";
+const BASE_URL_DEV = "http://localhost:5000";
 
 function postSignUp(body) {
   const promise = axios.post(`${BASE_URL}/sign-up`, body);

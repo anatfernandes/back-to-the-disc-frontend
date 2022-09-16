@@ -9,6 +9,7 @@ import Input from "../../common/Input";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import ProductCard from "./ProductCard";
+import FilterProducts from "./FilterProducts";
 
 
 export default function Products ({ cart, setCart }) {
@@ -39,17 +40,7 @@ export default function Products ({ cart, setCart }) {
     let productsFiltered;
 
     if (search) {
-        productsFiltered = products.filter(({ name, status, musics, tags }) => {
-            const musicsFiltered = musics.filter(music => music.toLowerCase().includes(search));
-            const tagsFiltered = tags.filter(tag => tag.toLowerCase().includes(search));
-
-            return (
-                name.toLowerCase().includes(search) ||
-                status.toLowerCase().includes(search) ||
-                musicsFiltered.length > 0 ||
-                tagsFiltered.length > 0
-            );
-        });
+        productsFiltered = FilterProducts({ products, search });
     }
 
     const productsToShow = productsFiltered ? productsFiltered : products;
