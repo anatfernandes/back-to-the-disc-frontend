@@ -7,11 +7,13 @@ import MessageContext from "../../contexts/MessageContext";
 import { Alert, Confirm } from "../Messages";
 import SignUp from "../AcessPages/SignUp.js";
 import SignIn from "../AcessPages/SignIn.js";
+import Products from "../Products/Products";
 import Cart from "../Cart/Cart.js";
 
 function App() {
   const [message, setMessage] = useState({});
-
+  const [cart, setCart] = useState([]);
+  
   return (
     <BrowserRouter>
       <MessageContext.Provider value={{ message, setMessage }}>
@@ -21,6 +23,7 @@ function App() {
         {message.type === "confirm" ? <Confirm /> : ""}
 
         <Routes>
+          <Route path="/" element={<Products cart={cart} setCart={setCart} />}></Route>
           <Route path="/sign-up" element={<SignUp />}></Route>
           <Route path="/sign-in" element={<SignIn />}></Route>
           <Route path="/checkout/my-cart" element={<Cart />}></Route>
