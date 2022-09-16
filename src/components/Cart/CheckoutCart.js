@@ -1,9 +1,9 @@
 import { useState, useContext } from "react";
 import MessageContext from "../../contexts/MessageContext";
 import { Button, BuyerData } from "./CartStyle";
+import { postHistoric } from "../../services/backtothedisc";
 
-
-export default function CheckoutCart() {
+export default function CheckoutCart({ cart }) {
   const [render, setRender] = useState(false);
   const [rua, setRua] = useState("");
   const [city, setCity] = useState("");
@@ -12,7 +12,7 @@ export default function CheckoutCart() {
 
   const checkCep = (e) => {
     const cep = e.target.value.replace(".", "").replace("-", "");
-    console.log(cep);
+
     fetch(`https://viacep.com.br/ws/${cep}/json`)
       .catch(() => setRender(false))
       .then((res) => res.json())
@@ -27,21 +27,41 @@ export default function CheckoutCart() {
   function join(event) {
     event.preventDefault();
 
+    console.log(cart);
+    
     setMessage({
       type: "confirm",
       message: {
         title: "Finalizar compra",
         text: "Você tem certeza que deseja finalizar sua compra e que seus dados estão corretos?",
         ifTrue: {
-          function: addHistoric,
+          function: historic,
           params: "",
         },
       },
     });
 
-    function addHistoric() {}
-
-    //enviar para a rota histórico
+    function historic() {
+      postHistoric(cart)
+        .catch(() =>
+          setMessage({
+            type: "alert",
+            message: {
+              text: "Não foi possível efetuar o login! Tente novamente.",
+              type: "error",
+            },
+          })
+        )
+        .then(() =>
+          setMessage({
+            type: "alert",
+            message: {
+              text: "Não foi possível efetuar o login! Tente novamente.",
+              type: "error",
+            },
+          })
+        );
+    }
   }
 
   return (

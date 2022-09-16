@@ -53,8 +53,9 @@ const InfosProduct = styled.div`
     font-size: 20px;
   }
 
-  h2 > h6 {
+  h6 {
     font-weight: 400;
+    margin-bottom: 22px;
   }
 
   h4 {

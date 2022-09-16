@@ -1,8 +1,10 @@
+import { useState } from "react";
+
 import Footer from "../Footer/Footer.js";
 import Header from "../Header/Header.js";
-import { useState } from "react";
 import ProductCart from "./ProductCart.js";
 import CheckoutCart from "./CheckoutCart.js";
+
 
 import { CartContainer, Title, ItemsCart, Checkout, Total } from "./CartStyle";
 
@@ -33,6 +35,7 @@ export default function Cart({ cart, setCart }) {
                 {...product}
                 total={total}
                 setTotal={setTotal}
+                produto={product}
               />
             ))}
             <Checkout>
@@ -41,7 +44,7 @@ export default function Cart({ cart, setCart }) {
                 <h2>R${total.toFixed(2).replace(".", ",")}</h2>
               </Total>
 
-              <CheckoutCart />
+              <CheckoutCart cart={cart} />
             </Checkout>
           </>
         )}

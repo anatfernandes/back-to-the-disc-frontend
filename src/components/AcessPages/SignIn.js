@@ -44,7 +44,7 @@ export default function SignIn() {
           },
         });
 
-        navigate("/my-cart");
+        navigate("/checkout/my-cart");
       });
   }
 

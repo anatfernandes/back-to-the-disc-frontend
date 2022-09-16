@@ -11,19 +11,25 @@ export default function ProductCart({
   preco,
   total,
   setTotal,
+  produto,
 }) {
   const [amount, setAmount] = useState(1);
   const { setMessage } = useContext(MessageContext);
+  produto.quantidade = amount;
 
   function addProduct() {
     setAmount(amount + 1);
     setTotal(total + preco);
+    produto.quantidade = amount + 1;
+    cart = cart.quantidade;
   }
 
   function lessProduct() {
     if (amount > 1) {
       setAmount(amount - 1);
       setTotal(total - preco);
+      produto.quantidade = amount - 1;
+      cart = cart.quantidade;
     }
   }
 
@@ -52,9 +58,8 @@ export default function ProductCart({
       <img src={image} alt="productImage"></img>
 
       <InfosProduct>
-        <h2>
-          {nome} <h6>{artista}</h6>
-        </h2>
+        <h2>{nome}</h2>
+        <h6>{artista}</h6>
         <h4 onClick={removeProduct}>Remover</h4>
       </InfosProduct>
       <Amount>

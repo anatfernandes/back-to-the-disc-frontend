@@ -9,6 +9,7 @@ import SignUp from "../AcessPages/SignUp.js";
 import SignIn from "../AcessPages/SignIn.js";
 import Products from "../Products/Products";
 import Cart from "../Cart/Cart.js";
+//import PrivatePage from "../PrivatePage/PrivatePage";
 
 function App() {
   const [message, setMessage] = useState({});
