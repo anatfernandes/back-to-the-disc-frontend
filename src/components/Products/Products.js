@@ -133,6 +133,11 @@ const Main = styled.main`
     & > button:hover {
         filter: brightness(0.9);
     }
+
+    & > button:disabled {
+        filter: brightness(0.7);
+        cursor: initial;
+    }
 `;
 
 const ProductsWrapper = styled.div`

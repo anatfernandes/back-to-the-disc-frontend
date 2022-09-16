@@ -18,4 +18,9 @@ function getProducts(page) {
   return promise;
 }
 
-export { postSignUp, postSignIn, getProducts };
+function getProductDescription(id) {
+  const promise = axios.get(`${BASE_URL}/description/${id}`);
+  return promise;
+}
+
+export { postSignUp, postSignIn, getProducts, getProductDescription };
