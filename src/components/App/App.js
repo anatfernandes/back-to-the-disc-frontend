@@ -8,6 +8,7 @@ import { Alert, Confirm } from "../Messages";
 import SignUp from "../AcessPages/SignUp.js";
 import SignIn from "../AcessPages/SignIn.js";
 import Products from "../Products/Products";
+import Description from "../Description/Description";
 import Cart from "../Cart/Cart.js";
 import PrivatePage from "../PrivatePage/PrivatePage";
 
@@ -24,12 +25,16 @@ function App() {
         {message.type === "confirm" ? <Confirm /> : ""}
 
         <Routes>
-          <Route
-            path="/"
-            element={<Products cart={cart} setCart={setCart} />}
-          ></Route>
+
+          <Route path="/" element={<Products cart={cart} setCart={setCart} />}></Route>
+
           <Route path="/sign-up" element={<SignUp />}></Route>
           <Route path="/sign-in" element={<SignIn />}></Route>
+
+          <Route path="/description/:productID" element={
+            <Description cart={cart} setCart={setCart} />
+          }></Route>
+
           <Route
             path="/checkout/my-cart"
             element={

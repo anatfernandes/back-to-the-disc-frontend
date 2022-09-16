@@ -29,6 +29,11 @@ function getProducts(page) {
   return promise;
 }
 
+function getProductDescription(id) {
+  const promise = axios.get(`${BASE_URL}/description/${id}`);
+  return promise;
+}
+
 function postHistoric(body) {
   console.log(body);
   const config = createHeaders();
@@ -36,4 +41,4 @@ function postHistoric(body) {
   return promise;
 }
 
-export { postSignUp, postSignIn, getProducts, postHistoric };
+export { postSignUp, postSignIn, getProducts, getProductDescription, postHistoric };
