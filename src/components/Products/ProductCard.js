@@ -5,15 +5,15 @@ import { Link } from "react-router-dom";
 import BackgroundSection from "../../common/BackgroundSection";
 
 
-export default function ProductCard ({ cart, setCart, nome, image, preco, _id }) {
+export default function ProductCard ({ cart, setCart, name, image, price, by, _id }) {
 
-    const hasInCart = cart.find(product => (product.nome === nome) && (product.preco === preco));
+    const hasInCart = cart.find(product => (product.name === name) && (product.price === price));
 
     const [buttonDisabled, setButtonDisabled] = useState(!!hasInCart);
 
 
     function addProductOnCart () {
-        setCart([...cart, { nome, image, preco }]);
+        setCart([...cart, { name, image, price, by }]);
         setButtonDisabled(true);
     }
 
@@ -22,11 +22,11 @@ export default function ProductCard ({ cart, setCart, nome, image, preco, _id })
         <BackgroundSection width='190px' height='260px' padding='0' margin='0 5px 40px'>
             <Container>
                 <Link to={`/description/${_id}`}>
-                    <Title><b>{nome.toUpperCase()}</b></Title>
+                    <Title><b>{name.toUpperCase()}</b></Title>
 
-                    <img alt={nome} src={image} />
+                    <img alt={name} src={image} />
 
-                    <div><b>{`R$ ${preco}`}</b></div>
+                    <div><b>{`R$ ${price}`}</b></div>
                 </Link>
             </Container>
             
