@@ -29,9 +29,7 @@ const ItemsCart = styled.div`
     font-weight: 700;
     color: var(--graySemiEscuro);
   }
-`;
 
-const ImageProduct = styled.div`
   img {
     width: 100px;
     height: 100px;
@@ -110,7 +108,7 @@ const Value = styled.div`
 
 const Checkout = styled.div`
   width: 50vw;
-  height: 350px;
+  height: fit-content;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -121,7 +119,7 @@ const Checkout = styled.div`
   padding: 25px;
 `;
 
-const Button = styled.div`
+const Button = styled.button`
   width: 100%;
   height: 40px;
   font-size: 18px;
@@ -134,6 +132,8 @@ const Button = styled.div`
   border: none;
   border-radius: 5px;
   bottom: 0;
+  cursor: pointer;
+  margin-top: 80px;
 `;
 
 const BuyerData = styled.div`
@@ -142,7 +142,7 @@ const BuyerData = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: flex-start;
-  margin-top: 50px;
+  margin-top: 40px;
 
   h2 {
     font-size: 19px;
@@ -163,6 +163,7 @@ const BuyerData = styled.div`
     border: solid 1px var(--graySemiEscuro);
     border-radius: 5px;
     box-sizing: border-box;
+    margin-bottom: 5px;
   }
 
   input::placeholder {
@@ -180,6 +181,14 @@ const BuyerData = styled.div`
     color: var(--grayMedioB);
     background-color: var(--white);
     border-radius: 5px;
+    cursor: pointer;
+  }
+
+  p {
+    display: flex;
+    color: var(--red-theme);
+    font-size: 17px;
+    margin-bottom: 10px;
   }
 `;
 
@@ -207,7 +216,6 @@ export {
   CartContainer,
   Title,
   ItemsCart,
-  ImageProduct,
   InfosProduct,
   Amount,
   Value,
