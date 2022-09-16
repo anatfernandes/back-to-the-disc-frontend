@@ -39,12 +39,12 @@ export default function Products ({ cart, setCart }) {
     let productsFiltered;
 
     if (search) {
-        productsFiltered = products.filter(({ nome, status, musicas, tags }) => {
-            const musicsFiltered = musicas.filter(music => music.toLowerCase().includes(search));
+        productsFiltered = products.filter(({ name, status, musics, tags }) => {
+            const musicsFiltered = musics.filter(music => music.toLowerCase().includes(search));
             const tagsFiltered = tags.filter(tag => tag.toLowerCase().includes(search));
 
             return (
-                nome.toLowerCase().includes(search) ||
+                name.toLowerCase().includes(search) ||
                 status.toLowerCase().includes(search) ||
                 musicsFiltered.length > 0 ||
                 tagsFiltered.length > 0
@@ -141,6 +141,11 @@ const Main = styled.main`
 
     & > button:hover {
         filter: brightness(0.9);
+    }
+
+    & > button:disabled {
+        filter: brightness(0.7);
+        cursor: initial;
     }
 `;
 
