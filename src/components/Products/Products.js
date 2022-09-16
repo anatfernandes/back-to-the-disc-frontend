@@ -14,8 +14,9 @@ import ProductCard from "./ProductCard";
 export default function Products ({ cart, setCart }) {
     const { setMessage } = useContext(MessageContext);
     const [products, setProducts] = useState([]);
+    const [search, setSearch] = useState('');
     const [page, setPage] = useState(1);
-console.log(products)
+
 
     useEffect(() => {
         const promise = getProducts(page);
@@ -34,6 +35,24 @@ console.log(products)
             setProducts([...products, ...data]);
         });
     }, [page]);
+
+    let productsFiltered;
+
+    if (search) {
+        productsFiltered = products.filter(({ nome, status, musicas, tags }) => {
+            const musicsFiltered = musicas.filter(music => music.toLowerCase().includes(search));
+            const tagsFiltered = tags.filter(tag => tag.toLowerCase().includes(search));
+
+            return (
+                nome.toLowerCase().includes(search) ||
+                status.toLowerCase().includes(search) ||
+                musicsFiltered.length > 0 ||
+                tagsFiltered.length > 0
+            );
+        });
+    }
+
+    const productsToShow = productsFiltered ? productsFiltered : products;
     
 
     return (
@@ -41,18 +60,25 @@ console.log(products)
             <Header>
                 <Search>
                     <SearchIcon />
-                    <InputSearch placeholder='Pesquisar...' />
+                    <InputSearch
+                        placeholder='Pesquisar...'
+                        value={search}
+                        onChange={e => setSearch(e.target.value)}
+                    />
                 </Search>
             </Header>
 
             <Main>
                 <ProductsWrapper>
-                    {products.map((product, index) => (
+                    {productsToShow.map((product, index) => (
                         <ProductCard key={index} cart={cart} setCart={setCart} {...product} />
                     ))}
                 </ProductsWrapper>
 
-                <button onClick={() => setPage(page + 1)}>Carregar mais...</button>
+                <button
+                    onClick={() => setPage(page + 1)}
+                    disabled={products.length % 10 !== 0}
+                >Carregar mais...</button>
             </Main>
 
             <Footer />

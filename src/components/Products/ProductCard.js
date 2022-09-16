@@ -64,6 +64,8 @@ const Title = styled.div`
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
+        display: flex;
+        justify-content: flex-start;
     }
 `;
 
