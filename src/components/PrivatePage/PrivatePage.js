@@ -1,6 +1,8 @@
-import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import MessageContext from "../../contexts/MessageContext";
+import Footer from "../Footer/Footer.js";
+import Header from "../Header/Header.js";
 
 export default function PrivatePage({ children }) {
   const navigate = useNavigate("");
@@ -22,5 +24,11 @@ export default function PrivatePage({ children }) {
     navigate("/sign-in");
   }
 
-  return <>{children}</>;
+  return (
+    <>
+      <Header />
+      {children}
+      <Footer />
+    </>
+  );
 }

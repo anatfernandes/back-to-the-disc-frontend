@@ -9,19 +9,11 @@ import SignUp from "../AcessPages/SignUp.js";
 import SignIn from "../AcessPages/SignIn.js";
 import Products from "../Products/Products";
 import Cart from "../Cart/Cart.js";
-//import PrivatePage from "../PrivatePage/PrivatePage";
+import PrivatePage from "../PrivatePage/PrivatePage";
 
 function App() {
   const [message, setMessage] = useState({});
-  const [cart, setCart] = useState([
-    {
-      artista: "Beyonce",
-      nome: "RENAISSANCE",
-      image:
-        "https://cdn.shopify.com/s/files/1/0096/1884/9839/products/beyonce_480x.png?v=1656665682",
-      preco: 79,
-    },
-  ]);
+  const [cart, setCart] = useState([]);
 
   return (
     <BrowserRouter>
@@ -40,7 +32,11 @@ function App() {
           <Route path="/sign-in" element={<SignIn />}></Route>
           <Route
             path="/checkout/my-cart"
-            element={<Cart cart={cart} setCart={setCart} />}
+            element={
+              <PrivatePage>
+                <Cart cart={cart} setCart={setCart} />
+              </PrivatePage>
+            }
           ></Route>
         </Routes>
       </MessageContext.Provider>

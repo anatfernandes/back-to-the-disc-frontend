@@ -3,7 +3,11 @@ import styled from "styled-components";
 const CartContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 100px;
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+  padding-top: 100px;
+  padding-bottom: 400px;
 `;
 
 const Title = styled.h1`
@@ -109,7 +113,7 @@ const Value = styled.div`
 
 const Checkout = styled.div`
   width: 50vw;
-  height: fit-content;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -132,14 +136,12 @@ const Button = styled.button`
   background-color: var(--red-theme);
   border: none;
   border-radius: 5px;
-  bottom: 0;
   cursor: pointer;
   margin-top: 80px;
 `;
 
 const BuyerData = styled.div`
   width: 100%;
-  height: 70%;
   display: flex;
   justify-content: space-evenly;
   align-items: flex-start;

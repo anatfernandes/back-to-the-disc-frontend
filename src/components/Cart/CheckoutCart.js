@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
-import MessageContext from "../../contexts/MessageContext";
+import MessageContext from "../../contexts/MessageContext.js";
+
 import { Button, BuyerData } from "./CartStyle";
 import { postHistoric } from "../../services/backtothedisc";
 
@@ -28,26 +29,26 @@ export default function CheckoutCart({ cart }) {
     event.preventDefault();
 
     console.log(cart);
-    
+
     setMessage({
       type: "confirm",
       message: {
         title: "Finalizar compra",
         text: "Você tem certeza que deseja finalizar sua compra e que seus dados estão corretos?",
         ifTrue: {
-          function: historic,
+          function: addHistoric,
           params: "",
         },
       },
     });
 
-    function historic() {
+    function addHistoric() {
       postHistoric(cart)
         .catch(() =>
           setMessage({
             type: "alert",
             message: {
-              text: "Não foi possível efetuar o login! Tente novamente.",
+              text: "Erro ao efetuar a compra! Confira seus dados, por gentileza.",
               type: "error",
             },
           })
@@ -56,8 +57,8 @@ export default function CheckoutCart({ cart }) {
           setMessage({
             type: "alert",
             message: {
-              text: "Não foi possível efetuar o login! Tente novamente.",
-              type: "error",
+              text: "Compra efetuada com sucesso! Agradecemos sua preferência.",
+              type: "sucess",
             },
           })
         );
@@ -100,7 +101,6 @@ export default function CheckoutCart({ cart }) {
           </select>
         </div>
       </BuyerData>
-
       <Button>Finalizar Compra</Button>
     </form>
   );

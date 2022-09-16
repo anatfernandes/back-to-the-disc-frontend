@@ -4,7 +4,7 @@ const BASE_URL = "http://localhost:5000";
 
 function createHeaders() {
   const token = JSON.parse(localStorage.getItem("backtothedisc")).token;
-
+  console.log(token);
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -30,6 +30,7 @@ function getProducts(page) {
 }
 
 function postHistoric(body) {
+  console.log(body);
   const config = createHeaders();
   const promise = axios.post(`${BASE_URL}/historic`, body, config);
   return promise;

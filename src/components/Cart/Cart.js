@@ -1,23 +1,19 @@
 import { useState } from "react";
 
-import Footer from "../Footer/Footer.js";
-import Header from "../Header/Header.js";
 import ProductCart from "./ProductCart.js";
 import CheckoutCart from "./CheckoutCart.js";
-
 
 import { CartContainer, Title, ItemsCart, Checkout, Total } from "./CartStyle";
 
 export default function Cart({ cart, setCart }) {
   const price = cart
-    .map((item) => item.preco)
+    .map((item) => item.price)
     .reduce((prev, curr) => prev + curr, 0);
 
   const [total, setTotal] = useState(price);
 
   return (
     <>
-      <Header />
       <CartContainer>
         <Title>CARRINHO DE COMPRAS</Title>
 
@@ -35,7 +31,7 @@ export default function Cart({ cart, setCart }) {
                 {...product}
                 total={total}
                 setTotal={setTotal}
-                produto={product}
+                product={product}
               />
             ))}
             <Checkout>
@@ -49,7 +45,6 @@ export default function Cart({ cart, setCart }) {
           </>
         )}
       </CartContainer>
-      <Footer />
     </>
   );
 }
