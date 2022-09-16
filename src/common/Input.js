@@ -17,7 +17,7 @@ const Wapper = styled.input`
   border-radius: ${props => props.radius ? props.radius : '15px'};
   margin: ${props => props.margin ? props.margin : '0 0 20px 0'};
   padding: 15px;
-  border: solid 1px var(--grayEscuro);
+  border: ${props => props.margin ? props.border : 'solid 1px var(--grayEscuro)'};
 
   &::placeholder {
     color: var(--grayEscuro);
