@@ -29,7 +29,7 @@ export default function Header ({ children }) {
                     type: 'warning'
                 },
                 style: {
-                    top:'160px'
+                    top:'60px'
                 }
             });
         }
@@ -56,8 +56,10 @@ export default function Header ({ children }) {
 
 
     return (
-        <Wrapper>
-            <img src={bannerImage} alt="back to the disc" />
+		<>
+		    <Banner>
+		        <img src={bannerImage} alt="back to the disc" />
+		    </Banner>
 
             <Menu>
                 <span>
@@ -93,13 +95,13 @@ export default function Header ({ children }) {
                     }
                 </div>
             </Menu>
-        </Wrapper>
+		</>
     );
 }
 
-const Wrapper = styled.header`
-    width: 100vw;
-    position: fixed;
+const Banner = styled.header`
+    width: 100%;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
@@ -128,6 +130,13 @@ const Menu = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+	position: sticky;
+	margin: 100px 0 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+
 
     span, a {
         font-size: 18px;

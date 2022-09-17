@@ -112,7 +112,7 @@ export default function Description ({ cart, setCart }) {
 const Main = styled.main`
     width: 80%;
     max-width: 900px;
-    margin: 200px auto 100px;
+    margin: 50px auto 100px;
 `;
 
 const Info = styled.div`

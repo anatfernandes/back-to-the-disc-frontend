@@ -27,8 +27,6 @@ export default function CheckoutCart({ cart }) {
   function join(event) {
     event.preventDefault();
 
-    console.log(cart);
-
     setMessage({
       type: "confirm",
       message: {
@@ -60,10 +58,10 @@ export default function CheckoutCart({ cart }) {
             type: "alert",
             message: {
               text: "Compra efetuada com sucesso! Agradecemos sua preferência.",
-              type: "sucess",
+              type: "success",
             },
             style: {
-              top: "160px",
+              top: "60px",
             },
           })
         );

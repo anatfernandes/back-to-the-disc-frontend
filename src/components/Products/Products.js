@@ -116,7 +116,7 @@ const InputSearch = styled(Input)`
 
 const Main = styled.main`
   max-width: 80%;
-  margin: 200px auto 100px;
+  margin: 50px auto 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
