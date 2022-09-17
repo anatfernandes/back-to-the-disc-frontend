@@ -1,6 +1,5 @@
 import { useState, useContext } from "react";
 import MessageContext from "../../contexts/MessageContext.js";
-
 import { Button, BuyerData } from "./CartStyle";
 import { postHistoric } from "../../services/backtothedisc";
 
@@ -51,6 +50,9 @@ export default function CheckoutCart({ cart }) {
               text: "Erro ao efetuar a compra! Confira seus dados, por gentileza.",
               type: "error",
             },
+            style: {
+              top: "160px",
+            },
           })
         )
         .then(() =>
@@ -59,6 +61,9 @@ export default function CheckoutCart({ cart }) {
             message: {
               text: "Compra efetuada com sucesso! Agradecemos sua preferência.",
               type: "sucess",
+            },
+            style: {
+              top: "160px",
             },
           })
         );
@@ -92,7 +97,7 @@ export default function CheckoutCart({ cart }) {
         </div>
 
         <div>
-          <h2>Escolha a forma de pagamento</h2>
+          <h2>Selecione a forma de pagamento</h2>
           <select>
             <option value="credit">Cartão de crédito</option>
             <option value="debit">Cartão de débito</option>
@@ -101,6 +106,7 @@ export default function CheckoutCart({ cart }) {
           </select>
         </div>
       </BuyerData>
+
       <Button>Finalizar Compra</Button>
     </form>
   );

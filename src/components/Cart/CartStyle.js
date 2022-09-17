@@ -37,6 +37,17 @@ const ItemsCart = styled.div`
     background-color: var(--grayEscuro);
     border-radius: 5px;
   }
+
+  @media (max-width: 1100px) {
+    width: 90vw;
+    height: 120px;
+    padding: 10px;
+
+    img {
+      width: 80px;
+      object-fit: cover;
+    }
+  }
 `;
 const Span = styled.span`
   width: 100%;
@@ -71,6 +82,16 @@ const InfosProduct = styled.div`
     font-weight: 700;
     cursor: pointer;
   }
+
+  @media (max-width: 1100px) {
+    width: 30%;
+    padding-left: 0px;
+
+    h2 {
+      font-size: 17px;
+      margin-top: 0px;
+    }
+  }
 `;
 
 const Amount = styled.div`
@@ -103,6 +124,10 @@ const Amount = styled.div`
     background-color: var(--grayMedioB);
     border: solid 1px var(--graySemiEscuro);
   }
+
+  @media (max-width: 1100px) {
+    width: 10%;
+  }
 `;
 
 const Value = styled.div`
@@ -112,6 +137,11 @@ const Value = styled.div`
   display: flex;
   justify-content: end;
   align-items: center;
+
+  @media (max-width: 1100px) {
+    width: 25%;
+    font-size: 18px;
+  }
 `;
 
 const Checkout = styled.div`
@@ -125,6 +155,10 @@ const Checkout = styled.div`
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
   margin-top: 50px;
   padding: 25px;
+
+  @media (max-width: 1100px) {
+    width: 90vw;
+  }
 `;
 
 const Button = styled.button`
@@ -195,6 +229,20 @@ const BuyerData = styled.div`
     color: var(--red-theme);
     font-size: 17px;
     margin-bottom: 10px;
+  }
+
+  @media (max-width: 1100px) {
+    justify-content: center;
+    width: 95%;
+    
+    h2{
+      font-size: 15px;
+    }
+    input{
+        width: 70%;
+    }
+
+  
   }
 `;
 

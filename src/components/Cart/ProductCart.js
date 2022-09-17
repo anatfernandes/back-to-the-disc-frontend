@@ -62,11 +62,13 @@ export default function ProductCart({
         <h6>{by}</h6>
         <h4 onClick={removeProduct}>Remover</h4>
       </InfosProduct>
+      
       <Amount>
         <button onClick={lessProduct}>-</button>
         <div>{amount}</div>
         <button onClick={addProduct}>+</button>
       </Amount>
+
       <Value>R$ {(price * amount).toFixed(2).replace(".", ",")}</Value>
     </ItemsCart>
   );
