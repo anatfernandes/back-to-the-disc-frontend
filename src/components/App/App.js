@@ -12,6 +12,8 @@ import Products from "../Products/Products";
 import Description from "../Description/Description";
 import Cart from "../Cart/Cart.js";
 import PrivatePage from "../PrivatePage/PrivatePage";
+import Historic from "../Historic/Historic";
+
 
 function App() {
   const [message, setMessage] = useState({});
@@ -47,6 +49,16 @@ function App() {
               </PrivatePage>
             }
           ></Route>
+
+          <Route
+            path="/historic"
+            element={
+              <PrivatePage>
+                <Historic />
+              </PrivatePage>
+            }
+          ></Route>
+
         </Routes>
       </MessageContext.Provider>
     </BrowserRouter>
