@@ -3,9 +3,6 @@ import styled from "styled-components";
 const CartContainer = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  width: 100vw;
-  align-items: center;
   padding-top: 100px;
   padding-bottom: 400px;
 `;
@@ -40,6 +37,12 @@ const ItemsCart = styled.div`
     background-color: var(--grayEscuro);
     border-radius: 5px;
   }
+`;
+const Span = styled.span`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const InfosProduct = styled.div`
@@ -226,4 +229,5 @@ export {
   Button,
   BuyerData,
   Total,
+  Span,
 };

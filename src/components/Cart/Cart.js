@@ -1,9 +1,14 @@
 import { useState } from "react";
-
 import ProductCart from "./ProductCart.js";
 import CheckoutCart from "./CheckoutCart.js";
-
-import { CartContainer, Title, ItemsCart, Checkout, Total } from "./CartStyle";
+import {
+  CartContainer,
+  Title,
+  ItemsCart,
+  Checkout,
+  Total,
+  Span,
+} from "./CartStyle";
 
 export default function Cart({ cart, setCart }) {
   const price = cart
@@ -19,7 +24,9 @@ export default function Cart({ cart, setCart }) {
 
         {cart.length === 0 ? (
           <ItemsCart>
-            <p>Ainda não há produtos no seu carrinho!</p>
+            <Span>
+              <p>Ainda não há produtos no seu carrinho!</p>
+            </Span>
           </ItemsCart>
         ) : (
           <>
@@ -34,6 +41,7 @@ export default function Cart({ cart, setCart }) {
                 product={product}
               />
             ))}
+
             <Checkout>
               <Total>
                 <h1>Total</h1>

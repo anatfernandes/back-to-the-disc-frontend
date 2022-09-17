@@ -7,7 +7,7 @@ export default function ProductCart({
   setCart,
   image,
   name,
-  singer,
+  by,
   price,
   total,
   setTotal,
@@ -59,7 +59,7 @@ export default function ProductCart({
 
       <InfosProduct>
         <h2>{name}</h2>
-        <h6>{singer}</h6>
+        <h6>{by}</h6>
         <h4 onClick={removeProduct}>Remover</h4>
       </InfosProduct>
       <Amount>
