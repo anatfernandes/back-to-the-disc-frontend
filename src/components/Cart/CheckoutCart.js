@@ -2,8 +2,10 @@ import { useState, useContext } from "react";
 import MessageContext from "../../contexts/MessageContext.js";
 import { Button, BuyerData } from "./CartStyle";
 import { postHistoric } from "../../services/backtothedisc";
+import { useNavigate } from "react-router-dom";
 
-export default function CheckoutCart({ cart }) {
+export default function CheckoutCart({ cart, setCart }) {
+  const navigate = useNavigate("");
   const [render, setRender] = useState(false);
   const [rua, setRua] = useState("");
   const [city, setCity] = useState("");
@@ -26,8 +28,6 @@ export default function CheckoutCart({ cart }) {
 
   function join(event) {
     event.preventDefault();
-
-    console.log(cart);
 
     setMessage({
       type: "confirm",
@@ -55,7 +55,7 @@ export default function CheckoutCart({ cart }) {
             },
           })
         )
-        .then(() =>
+        .then(() => {
           setMessage({
             type: "alert",
             message: {
@@ -65,8 +65,11 @@ export default function CheckoutCart({ cart }) {
             style: {
               top: "160px",
             },
-          })
-        );
+          });
+
+          navigate("/");
+          setCart([])
+        });
     }
   }
 
