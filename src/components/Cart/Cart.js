@@ -12,7 +12,7 @@ import {
 
 export default function Cart({ cart, setCart }) {
   const price = cart
-    .map((item) => item.price)
+    .map((item) => Number(item.price))
     .reduce((prev, curr) => prev + curr, 0);
 
   const [total, setTotal] = useState(price);
@@ -45,10 +45,10 @@ export default function Cart({ cart, setCart }) {
             <Checkout>
               <Total>
                 <h1>Total</h1>
-                <h2>R${total.toFixed(2).replace(".", ",")}</h2>
+                <h2>R${Number(total).toFixed(2).replace(".", ",")}</h2>
               </Total>
 
-              <CheckoutCart cart={cart} />
+              <CheckoutCart cart={cart} setCart={setCart} />
             </Checkout>
           </>
         )}

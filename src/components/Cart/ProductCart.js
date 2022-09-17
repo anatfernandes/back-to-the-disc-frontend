@@ -19,7 +19,7 @@ export default function ProductCart({
 
   function addProduct() {
     setAmount(amount + 1);
-    setTotal(total + price);
+    setTotal(total + Number(price));
     product.quantity = amount + 1;
     cart = cart.quantity;
   }
@@ -27,7 +27,7 @@ export default function ProductCart({
   function lessProduct() {
     if (amount > 1) {
       setAmount(amount - 1);
-      setTotal(total - price);
+      setTotal(total - Number(price));
       product.quantity = amount - 1;
       cart = cart.quantity;
     }
@@ -62,14 +62,14 @@ export default function ProductCart({
         <h6>{by}</h6>
         <h4 onClick={removeProduct}>Remover</h4>
       </InfosProduct>
-      
+
       <Amount>
         <button onClick={lessProduct}>-</button>
         <div>{amount}</div>
         <button onClick={addProduct}>+</button>
       </Amount>
 
-      <Value>R$ {(price * amount).toFixed(2).replace(".", ",")}</Value>
+      <Value>R$ {(Number(price) * amount).toFixed(2).replace(".", ",")}</Value>
     </ItemsCart>
   );
 }
