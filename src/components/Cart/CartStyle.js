@@ -5,13 +5,18 @@ const CartContainer = styled.div`
   flex-direction: column;
   padding-top: 100px;
   padding-bottom: 400px;
+
+  a {
+    font-size: 12px;
+    margin: 10px 0 30px;
+    color: var(--red-theme);
+  }
 `;
 
 const Title = styled.h1`
   font-size: 22px;
   font-weight: 700;
   margin-top: 100px;
-  margin-bottom: 30px;
 `;
 
 const ItemsCart = styled.div`
