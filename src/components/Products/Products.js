@@ -11,124 +11,128 @@ import Header from "../Header/Header";
 import ProductCard from "./ProductCard";
 import FilterProducts from "./FilterProducts";
 
+export default function Products({ cart, setCart }) {
+  const { setMessage } = useContext(MessageContext);
+  const [products, setProducts] = useState([]);
+  const [search, setSearch] = useState("");
+  const [page, setPage] = useState(1);
 
-export default function Products ({ cart, setCart }) {
-    const { setMessage } = useContext(MessageContext);
-    const [products, setProducts] = useState([]);
-    const [search, setSearch] = useState('');
-    const [page, setPage] = useState(1);
+  useEffect(() => {
+    const promise = getProducts(page);
 
+    promise.catch(() => {
+      setMessage({
+        type: "alert",
+        message: {
+          text: "Não foi possível carregar mais produtos. Tente novamente.",
+          type: "error",
+        },
+      });
+    });
 
-    useEffect(() => {
-        const promise = getProducts(page);
+    promise.then(({ data }) => {
+      setProducts([...products, ...data]);
+    });
+  }, [page]);
 
-        promise.catch(() => {
-            setMessage({
-                type: "alert",
-                message: {
-                  text: "Não foi possível carregar mais produtos. Tente novamente.",
-                  type: "error",
-                },
-              });
-        });
+  let productsFiltered;
 
-        promise.then(({ data }) => {
-            setProducts([...products, ...data]);
-        });
-    }, [page]);
+  if (search) {
+    productsFiltered = FilterProducts({ products, search });
+  }
 
-    let productsFiltered;
+  const productsToShow = productsFiltered ? productsFiltered : products;
 
-    if (search) {
-        productsFiltered = FilterProducts({ products, search });
-    }
+  return (
+    <>
+      <Header>
+        <Search>
+          <SearchIcon />
+          <InputSearch
+            placeholder="Pesquisar..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </Search>
+      </Header>
 
-    const productsToShow = productsFiltered ? productsFiltered : products;
-    
+      <Main>
+        <ProductsWrapper>
+          {productsToShow.map((product, index) => (
+            <ProductCard
+              key={index}
+              cart={cart}
+              setCart={setCart}
+              {...product}
+            />
+          ))}
+        </ProductsWrapper>
 
-    return (
-        <>
-            <Header>
-                <Search>
-                    <SearchIcon />
-                    <InputSearch
-                        placeholder='Pesquisar...'
-                        value={search}
-                        onChange={e => setSearch(e.target.value)}
-                    />
-                </Search>
-            </Header>
+        <button
+          onClick={() => setPage(page + 1)}
+          disabled={products.length % 10 !== 0}
+        >
+          Carregar mais...
+        </button>
+      </Main>
 
-            <Main>
-                <ProductsWrapper>
-                    {productsToShow.map((product, index) => (
-                        <ProductCard key={index} cart={cart} setCart={setCart} {...product} />
-                    ))}
-                </ProductsWrapper>
-
-                <button
-                    onClick={() => setPage(page + 1)}
-                    disabled={products.length % 10 !== 0}
-                >Carregar mais...</button>
-            </Main>
-
-            <Footer />
-        </>
-    );
+      <Footer />
+    </>
+  );
 }
 
 const Search = styled.div`
-    && {
-        width: 40%;
-        max-width: 310px;
-        position: relative;
+  && {
+    width: 40%;
+    max-width: 310px;
+    position: relative;
 
-        svg {
-            width: 25px;
-            height: auto;
-            position: absolute;
-            z-index: 3;
-            left: 7px;
-            color: var(--grayEscuro);
-        }
-
-        input {
-            width: 100%;
-            position: absolute;
-        }
+    svg {
+      width: 25px;
+      height: auto;
+      position: absolute;
+      z-index: 3;
+      left: 7px;
+      color: var(--grayEscuro);
     }
+
+    input {
+      width: 100%;
+      position: absolute;
+    }
+  }
 `;
 
 const InputSearch = styled(Input)`
-    width: 40%;
-    max-width: 310px;
-    height: 34px;
-    border-radius: 5px;
-    margin: 0;
-    padding: 0 0 0 40px;
-    border: none;
-    text-align: left;
+  width: 40%;
+  max-width: 310px;
+  height: 34px;
+  border-radius: 5px;
+  margin: 0;
+  padding: 0 0 0 40px;
+  border: none;
+  text-align: left;
 `;
 
 const Main = styled.main`
-    max-width: 80%;
-    margin: 200px auto 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+  max-width: 80%;
+  margin: 200px auto 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 
-    & > button {
-        width: 190px;
-        height: 33px;
-        border: none;
-        border-radius: 5px;
-        font-size: 16px;
-        color: var(--grayClaroB);
-        font-weight: 700;
-        background-color: var(--grayEscuro);
-        cursor: pointer;
-    }
+  & > button {
+    width: 190px;
+    height: 33px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    color: var(--grayClaroB);
+    font-weight: 700;
+    background-color: var(--grayEscuro);
+    cursor: pointer;
+  }
 
     & > button:hover {
         filter: brightness(0.9);
@@ -141,8 +145,8 @@ const Main = styled.main`
 `;
 
 const ProductsWrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 `;

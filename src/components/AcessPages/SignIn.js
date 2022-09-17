@@ -28,6 +28,9 @@ export default function SignIn() {
             text: "Não foi possível efetuar o login! Tente novamente.",
             type: "error",
           },
+          style: {
+            top: "160px",
+          },
         });
       })
       .then((response) => {
@@ -42,9 +45,12 @@ export default function SignIn() {
             text: "Bem vindo(a)!",
             type: "sucess",
           },
+          style: {
+            top: "160px",
+          },
         });
 
-        navigate("/my-cart");
+        navigate("/");
       });
   }
 

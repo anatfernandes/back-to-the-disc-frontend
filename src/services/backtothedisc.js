@@ -1,16 +1,15 @@
 import axios from "axios";
 
 const BASE_URL = "https://back-to-the-disc-backend.herokuapp.com";
-const BASE_URL_DEV = "http://localhost:5000";
 
-function createHeaders () {
-  const auth = JSON.parse(localStorage.getItem('backtothedisc'));
+function createHeaders() {
+  const auth = JSON.parse(localStorage.getItem("backtothedisc"));
 
   const config = {
-      headers: {
-        Authorization: `Bearer ${auth.token}`
-      }
-  }
+    headers: {
+      Authorization: `Bearer ${auth.token}`,
+    },
+  };
 
   return config;
 }
@@ -34,7 +33,7 @@ function putLogout() {
   const config = createHeaders();
 
   const promise = axios.put(`${BASE_URL}/logout`, {}, config);
-  
+
   return promise;
 }
 
@@ -43,4 +42,18 @@ function getProductDescription(id) {
   return promise;
 }
 
-export { postSignUp, postSignIn, getProducts, getProductDescription, putLogout };
+function postHistoric(body) {
+  console.log(body);
+  const config = createHeaders();
+  const promise = axios.post(`${BASE_URL}/historic`, body, config);
+  return promise;
+}
+
+export {
+  postSignUp,
+  postSignIn,
+  getProducts,
+  getProductDescription,
+  postHistoric,
+  putLogout,
+};
