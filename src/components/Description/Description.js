@@ -139,6 +139,19 @@ const Info = styled.div`
             width: 258px;
         }
     }
+
+	@media (max-width: 450px) {
+    	flex-direction: column;
+
+		& > div {
+			margin: 0 0 20px;
+		}
+
+		img {
+            width: 100%;
+    		height: 200px;
+        }
+    }
 `;
 
 const Product = styled.div`
