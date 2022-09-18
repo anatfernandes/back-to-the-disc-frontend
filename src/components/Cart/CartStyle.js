@@ -3,7 +3,6 @@ import styled from "styled-components";
 const CartContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding-top: 50px;
   padding-bottom: 400px;
 
   a {
@@ -16,8 +15,7 @@ const CartContainer = styled.div`
 const Title = styled.h1`
   font-size: 22px;
   font-weight: 700;
-  //margin-top: 100px;
-  margin-bottom: 30px;
+  margin-top: 50px;
 `;
 
 const ItemsCart = styled.div`
