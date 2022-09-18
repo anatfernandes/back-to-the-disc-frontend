@@ -23,7 +23,7 @@ export default function Logout ({ setMessage }) {
                 type: "warning",
             },
             style: {
-                top:'160px'
+                top:'60px'
             }
         });
 

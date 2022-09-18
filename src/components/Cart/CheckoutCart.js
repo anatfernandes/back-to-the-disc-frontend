@@ -60,10 +60,10 @@ export default function CheckoutCart({ cart, setCart }) {
             type: "alert",
             message: {
               text: "Compra efetuada com sucesso! Agradecemos sua preferência.",
-              type: "sucess",
+              type: "success",
             },
             style: {
-              top: "160px",
+              top: "60px",
             },
           });
 

@@ -17,6 +17,7 @@ const Title = styled.h1`
   font-size: 22px;
   font-weight: 700;
   margin-top: 100px;
+  margin-bottom: 30px;
 `;
 
 const ItemsCart = styled.div`

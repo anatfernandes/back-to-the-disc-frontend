@@ -22,35 +22,44 @@ export default function SignUp() {
   function joinSignUp(event) {
     event.preventDefault();
 
-    if (repeatPassword !== password) {
+    if (repeatPassword !== password || password.length < 4) {
       setMessage({
         type: "alert",
         message: {
-          text: "As senhas devem ser iguais!",
+          text: "As senhas devem ser iguais e ter no mínimo 4 caracteres!",
           type: "error",
         },
       });
     } else {
-      postSignUp(body)
-        .catch((err) => {
-          console.log(err);
-          setName("");
-          setEmail("");
-          setPassword("");
-          setPassword("");
-        })
-        .then((response) => {
-          console.log(response);
-          setMessage({
-            type: "alert",
-            message: {
-              text: "Cadastro realizado com sucesso!",
-              type: "sucess",
-            },
-          });
+      const promise = postSignUp(body);
 
-          navigate("/sign-in");
+      promise.catch((err) => {
+        console.log(err);
+        setName("");
+        setEmail("");
+        setPassword("");
+        setRepeatPassword("");
+
+        setMessage({
+          type: "alert",
+          message: {
+            text: "Ocorreu um erro no cadastro. Por favor, tente novamente.",
+            type: "error",
+          },
         });
+      })
+
+      promise.then(() => {
+        setMessage({
+          type: "alert",
+          message: {
+            text: "Cadastro realizado com sucesso!",
+            type: "success",
+          },
+        });
+
+        navigate("/sign-in");
+      });
     }
   }
 

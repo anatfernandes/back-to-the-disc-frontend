@@ -112,7 +112,7 @@ export default function Description ({ cart, setCart }) {
 const Main = styled.main`
     width: 80%;
     max-width: 900px;
-    margin: 200px auto 100px;
+    margin: 50px auto 100px;
 `;
 
 const Info = styled.div`
@@ -137,6 +137,19 @@ const Info = styled.div`
     @media (min-width: 800px) {
         img {
             width: 258px;
+        }
+    }
+
+	@media (max-width: 450px) {
+    	flex-direction: column;
+
+		& > div {
+			margin: 0 0 20px;
+		}
+
+		img {
+            width: 100%;
+    		height: 200px;
         }
     }
 `;
