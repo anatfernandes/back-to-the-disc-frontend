@@ -1,12 +1,13 @@
 import styled from "styled-components"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 
 import { getHistoric } from "../../services/backtothedisc"
 import { BackgroundSection } from "../../common";
+import MessageContext from "../../contexts/MessageContext.js";
 import HistoricCard from "./HistoricCard";
 
-
 export default function Historic () {
+    const { setMessage } = useContext(MessageContext);
     const [historic, setHistoric] = useState([]);
 
     useEffect(() => {
