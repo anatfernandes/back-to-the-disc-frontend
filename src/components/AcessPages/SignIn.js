@@ -27,10 +27,7 @@ export default function SignIn() {
           message: {
             text: "Não foi possível efetuar o login! Tente novamente.",
             type: "error",
-          },
-          style: {
-            top: "160px",
-          },
+          }
         });
       })
       .then((response) => {
@@ -43,10 +40,10 @@ export default function SignIn() {
           type: "alert",
           message: {
             text: "Bem vindo(a)!",
-            type: "sucess",
+            type: "success",
           },
           style: {
-            top: "160px",
+            top: "60px",
           },
         });
 
