@@ -11,6 +11,7 @@ export default function CheckoutCart({ cart, setCart }) {
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const { setMessage } = useContext(MessageContext);
+  const [selectPayment, setSelectPayment] = useState("credit");
 
   const checkCep = (e) => {
     const cep = e.target.value.replace(".", "").replace("-", "");
@@ -28,6 +29,8 @@ export default function CheckoutCart({ cart, setCart }) {
 
   function join(event) {
     event.preventDefault();
+  
+   
 
     setMessage({
       type: "confirm",
@@ -42,7 +45,7 @@ export default function CheckoutCart({ cart, setCart }) {
     });
 
     function addHistoric() {
-      postHistoric(cart)
+      postHistoric({products: cart, payment: selectPayment})
         .catch(() =>
           setMessage({
             type: "alert",
@@ -68,7 +71,7 @@ export default function CheckoutCart({ cart, setCart }) {
           });
 
           navigate("/");
-          setCart([])
+          setCart([]);
         });
     }
   }
@@ -101,7 +104,10 @@ export default function CheckoutCart({ cart, setCart }) {
 
         <div>
           <h2>Selecione a forma de pagamento</h2>
-          <select>
+          <select
+            value={selectPayment}
+            onChange={(e) => setSelectPayment(e.target.value)}
+          >
             <option value="credit">Cartão de crédito</option>
             <option value="debit">Cartão de débito</option>
             <option value="boleto">Boleto</option>

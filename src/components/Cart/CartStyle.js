@@ -3,7 +3,7 @@ import styled from "styled-components";
 const CartContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding-top: 100px;
+  padding-top: 50px;
   padding-bottom: 400px;
 
   a {
@@ -16,7 +16,7 @@ const CartContainer = styled.div`
 const Title = styled.h1`
   font-size: 22px;
   font-weight: 700;
-  margin-top: 100px;
+  //margin-top: 100px;
   margin-bottom: 30px;
 `;
 
@@ -55,6 +55,7 @@ const ItemsCart = styled.div`
     }
   }
 `;
+
 const Span = styled.span`
   width: 100%;
   display: flex;
@@ -72,14 +73,16 @@ const InfosProduct = styled.div`
 
   h2 {
     margin-top: 8px;
-    line-height: 25px;
+    line-height: 20px;
     font-weight: 700;
     font-size: 20px;
   }
 
   h6 {
-    font-weight: 400;
-    margin-bottom: 22px;
+    font-weight: 500;
+    margin-top: 5px;
+    font-size: 14px;
+    color: var(--grayEscuro);
   }
 
   h4 {
@@ -95,8 +98,9 @@ const InfosProduct = styled.div`
 
     h2 {
       font-size: 17px;
-      margin-top: 0px;
+      margin-top: 4px;
     }
+
   }
 `;
 
@@ -240,15 +244,13 @@ const BuyerData = styled.div`
   @media (max-width: 1100px) {
     justify-content: center;
     width: 95%;
-    
-    h2{
+
+    h2 {
       font-size: 15px;
     }
-    input{
-        width: 70%;
+    input {
+      width: 70%;
     }
-
-  
   }
 `;
 
