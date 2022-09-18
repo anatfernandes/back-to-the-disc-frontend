@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useEffect, useState, useContext } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import { getProductDescription } from "../../services/backtothedisc";
 import MessageContext from "../../contexts/MessageContext";

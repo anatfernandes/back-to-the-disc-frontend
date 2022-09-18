@@ -43,11 +43,17 @@ function getProductDescription(id) {
 }
 
 function postHistoric(body) {
-  console.log(body);
   const config = createHeaders();
   const promise = axios.post(`${BASE_URL}/historic`, body, config);
   return promise;
 }
+
+function getHistoric() {
+  const config = createHeaders();
+  const promise = axios.get(`${BASE_URL}/historic`, config);
+  return promise;
+}
+
 
 export {
   postSignUp,
@@ -56,4 +62,5 @@ export {
   getProductDescription,
   postHistoric,
   putLogout,
+  getHistoric
 };

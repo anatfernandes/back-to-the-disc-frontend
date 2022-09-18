@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import ProductCart from "./ProductCart.js";
 import CheckoutCart from "./CheckoutCart.js";
 import {
@@ -9,6 +10,7 @@ import {
   Total,
   Span,
 } from "./CartStyle";
+
 
 export default function Cart({ cart, setCart }) {
   const price = cart
@@ -21,6 +23,7 @@ export default function Cart({ cart, setCart }) {
     <>
       <CartContainer>
         <Title>CARRINHO DE COMPRAS</Title>
+        <Link to='/historic'>HISTÓRICO</Link>
 
         {cart.length === 0 ? (
           <ItemsCart>
