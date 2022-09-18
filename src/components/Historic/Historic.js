@@ -54,7 +54,7 @@ export default function Historic () {
 const Main = styled.main`
     width: 80%;
     max-width: 900px;
-    margin: 200px auto 100px;
+    margin: 50px auto 100px;
 	align-items: flex-start;
 
     h1 {
