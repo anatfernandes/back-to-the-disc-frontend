@@ -100,7 +100,6 @@ const InfosProduct = styled.div`
       font-size: 17px;
       margin-top: 4px;
     }
-
   }
 `;
 
@@ -166,6 +165,10 @@ const Checkout = styled.div`
   margin-top: 50px;
   padding: 25px;
 
+  span {
+    font-size: 16px;
+  }
+
   @media (max-width: 1100px) {
     width: 90vw;
   }
@@ -185,6 +188,7 @@ const Button = styled.button`
   border-radius: 5px;
   cursor: pointer;
   margin-top: 80px;
+  margin-bottom: 5px;
 `;
 
 const BuyerData = styled.div`

@@ -43,7 +43,6 @@ function getProductDescription(id) {
 }
 
 function postHistoric(body) {
-  console.log(body);
   const config = createHeaders();
   const promise = axios.post(`${BASE_URL}/historic`, body, config);
   return promise;

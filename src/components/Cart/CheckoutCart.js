@@ -12,6 +12,7 @@ export default function CheckoutCart({ cart, setCart }) {
   const [state, setState] = useState("");
   const { setMessage } = useContext(MessageContext);
   const [selectPayment, setSelectPayment] = useState("credit");
+  const [sendEmail, setSendEmail] = useState(false);
 
   const checkCep = (e) => {
     const cep = e.target.value.replace(".", "").replace("-", "");
@@ -29,9 +30,7 @@ export default function CheckoutCart({ cart, setCart }) {
 
   function join(event) {
     event.preventDefault();
-  
-   
-
+    console.log(sendEmail);
     setMessage({
       type: "confirm",
       message: {
@@ -45,7 +44,11 @@ export default function CheckoutCart({ cart, setCart }) {
     });
 
     function addHistoric() {
-      postHistoric({products: cart, payment: selectPayment})
+      postHistoric({
+        products: cart,
+        payment: selectPayment,
+        sendEmail: sendEmail,
+      })
         .catch(() =>
           setMessage({
             type: "alert",
@@ -117,6 +120,9 @@ export default function CheckoutCart({ cart, setCart }) {
       </BuyerData>
 
       <Button>Finalizar Compra</Button>
+
+      <input type="checkbox" onChange={() => setSendEmail(!sendEmail)} />
+      <span>Enviar para o seu e-mail?</span>
     </form>
   );
 }
