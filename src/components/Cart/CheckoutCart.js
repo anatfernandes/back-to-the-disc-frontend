@@ -30,7 +30,7 @@ export default function CheckoutCart({ cart, setCart }) {
 
   function join(event) {
     event.preventDefault();
-    console.log(sendEmail);
+
     setMessage({
       type: "confirm",
       message: {
@@ -111,8 +111,8 @@ export default function CheckoutCart({ cart, setCart }) {
             value={selectPayment}
             onChange={(e) => setSelectPayment(e.target.value)}
           >
-            <option value="credit">Cartão de crédito</option>
-            <option value="debit">Cartão de débito</option>
+            <option value="credito">Cartão de crédito</option>
+            <option value="debito">Cartão de débito</option>
             <option value="boleto">Boleto</option>
             <option value="pix">Pix</option>
           </select>

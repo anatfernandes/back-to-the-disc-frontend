@@ -1,35 +1,25 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import MessageContext from "../../contexts/MessageContext";
 import { InfosProduct, Amount, Value, ItemsCart } from "./CartStyle";
 
 export default function ProductCart({
   cart,
   setCart,
-  image,
-  name,
-  by,
-  price,
   total,
   setTotal,
   product,
 }) {
-  const [amount, setAmount] = useState(1);
   const { setMessage } = useContext(MessageContext);
-  product.quantity = amount;
 
   function addProduct() {
-    setAmount(amount + 1);
-    setTotal(total + Number(price));
-    product.quantity = amount + 1;
-    cart = cart.quantity;
+    product.quantity = product.quantity + 1;
+    setTotal(total + Number(product.price));
   }
 
   function lessProduct() {
-    if (amount > 1) {
-      setAmount(amount - 1);
-      setTotal(total - Number(price));
-      product.quantity = amount - 1;
-      cart = cart.quantity;
+    if (product.quantity > 1) {
+      product.quantity = product.quantity - 1;
+      setTotal(total - Number(product.price));
     }
   }
 
@@ -47,20 +37,22 @@ export default function ProductCart({
     });
 
     function remove() {
-      const removeItem = cart.filter((products) => products.name !== name);
+      const removeItem = cart.filter(
+        (products) => products.name !== product.name
+      );
       setCart(removeItem);
-      setTotal(total - price * amount);
+      setTotal(total - Number(product.price) * product.quantity);
     }
   }
 
   return (
     <ItemsCart>
-      <img src={image} alt="productImage"></img>
+      <img src={product.image} alt="productImage"></img>
 
       <InfosProduct>
         <div>
-          <h2>{name}</h2>
-          <h6>{by}</h6>
+          <h2>{product.name}</h2>
+          <h6>{product.by}</h6>
         </div>
 
         <h4 onClick={removeProduct}>Remover</h4>
@@ -68,11 +60,16 @@ export default function ProductCart({
 
       <Amount>
         <button onClick={lessProduct}>-</button>
-        <div>{amount}</div>
+        <div>{product.quantity}</div>
         <button onClick={addProduct}>+</button>
       </Amount>
 
-      <Value>R$ {(Number(price) * amount).toFixed(2).replace(".", ",")}</Value>
+      <Value>
+        R${" "}
+        {(Number(product.price) * product.quantity)
+          .toFixed(2)
+          .replace(".", ",")}
+      </Value>
     </ItemsCart>
   );
 }

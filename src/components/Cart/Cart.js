@@ -11,10 +11,9 @@ import {
   Span,
 } from "./CartStyle";
 
-
 export default function Cart({ cart, setCart }) {
   const price = cart
-    .map((item) => Number(item.price))
+    .map((item) => Number(item.price) * item.quantity)
     .reduce((prev, curr) => prev + curr, 0);
 
   const [total, setTotal] = useState(price);
@@ -23,7 +22,7 @@ export default function Cart({ cart, setCart }) {
     <>
       <CartContainer>
         <Title>CARRINHO DE COMPRAS</Title>
-        <Link to='/historic'>HISTÓRICO</Link>
+        <Link to="/historic">HISTÓRICO</Link>
 
         {cart.length === 0 ? (
           <ItemsCart>
@@ -38,7 +37,6 @@ export default function Cart({ cart, setCart }) {
                 key={index}
                 cart={cart}
                 setCart={setCart}
-                {...product}
                 total={total}
                 setTotal={setTotal}
                 product={product}
