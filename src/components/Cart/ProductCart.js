@@ -58,8 +58,11 @@ export default function ProductCart({
       <img src={image} alt="productImage"></img>
 
       <InfosProduct>
-        <h2>{name}</h2>
-        <h6>{by}</h6>
+        <div>
+          <h2>{name}</h2>
+          <h6>{by}</h6>
+        </div>
+
         <h4 onClick={removeProduct}>Remover</h4>
       </InfosProduct>
 
