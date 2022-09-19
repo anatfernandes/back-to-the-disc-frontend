@@ -54,7 +54,6 @@ function getHistoric() {
   return promise;
 }
 
-
 export {
   postSignUp,
   postSignIn,
@@ -62,5 +61,5 @@ export {
   getProductDescription,
   postHistoric,
   putLogout,
-  getHistoric
+  getHistoric,
 };
