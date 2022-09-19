@@ -46,7 +46,7 @@ export default function Description ({ cart, setCart }) {
 
     function addProductOnCart () {
         const { name, image, price, by } = description;
-        setCart([...cart, { name, image, price, by }]);
+        setCart([...cart, { name, image, price, by, quantity: 1 }]);
         setButtonDisabled(true);
     }
 
