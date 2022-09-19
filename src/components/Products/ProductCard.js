@@ -4,88 +4,102 @@ import { Link } from "react-router-dom";
 
 import BackgroundSection from "../../common/BackgroundSection";
 
+export default function ProductCard({
+  cart,
+  setCart,
+  name,
+  image,
+  price,
+  by,
+  _id,
+}) {
+  const hasInCart = cart.find(
+    (product) => product.name === name && product.price === price
+  );
 
-export default function ProductCard ({ cart, setCart, name, image, price, by, _id }) {
+  const [buttonDisabled, setButtonDisabled] = useState(!!hasInCart);
 
-    const hasInCart = cart.find(product => (product.name === name) && (product.price === price));
+  function addProductOnCart() {
+    setCart([...cart, { name, image, price, by, quantity: 1 }]);
+    setButtonDisabled(true);
+  }
 
-    const [buttonDisabled, setButtonDisabled] = useState(!!hasInCart);
+  return (
+    <BackgroundSection
+      width="190px"
+      height="260px"
+      padding="0"
+      margin="0 5px 40px"
+    >
+      <Container>
+        <Link to={`/description/${_id}`}>
+          <Title>
+            <b>{name.toUpperCase()}</b>
+          </Title>
 
+          <img alt={name} src={image} />
 
-    function addProductOnCart () {
-        setCart([...cart, { name, image, price, by }]);
-        setButtonDisabled(true);
-    }
+          <div>
+            <b>{`R$ ${price}`}</b>
+          </div>
+        </Link>
+      </Container>
 
-
-    return (
-        <BackgroundSection width='190px' height='260px' padding='0' margin='0 5px 40px'>
-            <Container>
-                <Link to={`/description/${_id}`}>
-                    <Title><b>{name.toUpperCase()}</b></Title>
-
-                    <img alt={name} src={image} />
-
-                    <div><b>{`R$ ${price}`}</b></div>
-                </Link>
-            </Container>
-            
-            <Button onClick={addProductOnCart} disabled={buttonDisabled}>
-                <b>Adicionar ao carrinho</b>
-            </Button>
-            
-        </BackgroundSection>
-    );
+      <Button onClick={addProductOnCart} disabled={buttonDisabled}>
+        <b>Adicionar ao carrinho</b>
+      </Button>
+    </BackgroundSection>
+  );
 }
 
 const Container = styled.div`
-    font-size: 16px;
-    cursor: pointer;
+  font-size: 16px;
+  cursor: pointer;
 
-    div {
-        height: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+  div {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-    img {
-        width: 100%;
-        height: 160px;
-        object-fit: cover;
-    }
+  img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+  }
 `;
 
 const Title = styled.div`
-    && {
-        width: 80%;
-        height: 40px;
-        margin: auto;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        display: flex;
-        justify-content: flex-start;
-    }
+  && {
+    width: 80%;
+    height: 40px;
+    margin: auto;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: flex;
+    justify-content: flex-start;
+  }
 `;
 
 const Button = styled.button`
-    width: 100%;
-    height: 30px;
-    font-size: 16px;
-    color: var(--white);
-    text-align: center;
-    background-color: var(--black);
-    border-radius: 0 0 10px 10px;
-    border: none;
-    cursor: pointer;
+  width: 100%;
+  height: 30px;
+  font-size: 16px;
+  color: var(--white);
+  text-align: center;
+  background-color: var(--black);
+  border-radius: 0 0 10px 10px;
+  border: none;
+  cursor: pointer;
 
-    &:hover {
-        filter: brightness(1.3);
-    }
+  &:hover {
+    filter: brightness(1.3);
+  }
 
-    &:disabled {
-        filter: brightness(0.6);
-        cursor: initial;
-    }
-`
+  &:disabled {
+    filter: brightness(0.6);
+    cursor: initial;
+  }
+`;
