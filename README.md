@@ -19,6 +19,7 @@ Compre discos aqui: https://back-to-the-disc.vercel.app/
 - Barra de pesquisa
 - Adicionar e remover disco no carrinho
 - Escolher a quantidade do disco comprado
+- Procurar endereço pelo CEP
 - Confirmação pós compra pelo email
 - Histórico de compras
 
