@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# :notes: Back to the Disc
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Página web para a compra de discos de vinil, onde é possível saber mais sobre o álbum, adicionar ao carrinho e acompanhar seu histórico de compras.
 
-## Available Scripts
+<div align=center>
+ 
+  ![Back to the Disc gif](https://user-images.githubusercontent.com/97851922/191495248-c66737ea-ba37-4fae-b31c-8406fa2cbb49.gif)
+  
+</div>
 
-In the project directory, you can run:
+Compre discos aqui: https://back-to-the-disc.vercel.app/
 
-### `npm start`
+<br />
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## :hammer: Funcionalidades
+- Cadastro
+- Login
+- Listagem de álbuns
+- Barra de pesquisa
+- Adicionar e remover disco no carrinho
+- Escolher a quantidade do disco comprado
+- Confirmação pós compra pelo email
+- Histórico de compras
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<br />
 
-### `npm test`
+## :hammer_and_wrench: Abrir e rodar o projeto
+1. Clone esse repositório:
+>```bash
+>$ git clone https://github.com/AnaLTFernandes/back-to-the-disc-frontend.git
+>```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br />
 
-### `npm run build`
+2. Instale as dependências:
+>```bash
+>#se você usa npm
+>$ npm install
+>```
+>
+><p align="center">ou</p>
+>
+>```bash
+>#se você usa yarn
+>$ yarn
+>```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<br />
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Inicie o programa:
+>```bash
+>#se você usa npm
+>$ npm start
+>```
+>
+><p align="center">ou</p>
+>
+>```bash
+>#se você usa yarn
+>$ yarn start
+>```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<br />
 
-### `npm run eject`
+4. Acesse http://localhost:3000 no seu navegador e aproveite <3
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<br />
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## :heavy_check_mark: Tecnologias utilizadas
+<img align="left" alt="axios" height="25px" src="https://img.shields.io/badge/-axios-success" />
+<img align="left" alt="react" height="25px" src="https://img.shields.io/badge/-React-5ED3F3?logo=react&logoColor=white" />
+<img align="left" alt="react-router" height="25px" src="https://img.shields.io/badge/React-Router-5ED3F3" />
+<img align="left" alt="styled-components" height="25px" src="https://img.shields.io/badge/styled-components-violet?logo=styled-components" />
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<br />
+<br />
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
