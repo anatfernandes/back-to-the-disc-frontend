@@ -48,7 +48,15 @@ Compre discos aqui: https://back-to-the-disc.vercel.app/
 
 <br />
 
-3. Inicie o programa:
+3. Instale e configure o backend em https://github.com/AnaLTFernandes/back-to-the-disc-backend/
+
+<br />
+
+4. Mude a variável *BASE_URL* no arquivo [backtothedisc](https://github.com/AnaLTFernandes/back-to-the-disc-frontend/blob/main/src/services/backtothedisc.js) para `http://localhost:{BACKEND_PORT}`
+
+<br />
+
+5. Inicie o programa:
 >```bash
 >#se você usa npm
 >$ npm start
@@ -63,7 +71,7 @@ Compre discos aqui: https://back-to-the-disc.vercel.app/
 
 <br />
 
-4. Acesse http://localhost:3000 no seu navegador e aproveite <3
+6. Acesse http://localhost:3000 no seu navegador e aproveite <3
 
 <br />
 
